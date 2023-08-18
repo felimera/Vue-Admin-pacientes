@@ -1,8 +1,13 @@
 <script setup>
-
+const prpos = defineProps({
+    alerta: {
+        type: Object,
+        required: true
+    }
+})
 </script>
 <template>
-    <div>
-        Esta es la alerta
+    <div class="text-white text-center p-3 uppercase font-bold mb-3 rounded-md bg-red-500">
+        {{ alerta.mensaje }}
     </div>
 </template>
