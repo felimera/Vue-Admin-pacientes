@@ -1,5 +1,5 @@
 <script setup>
-const prpos = defineProps({
+const props = defineProps({
     alerta: {
         type: Object,
         required: true
