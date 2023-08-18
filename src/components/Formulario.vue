@@ -1,11 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 
-const nombre = ref('Eva');
-
-const leerNombre = e => {
-    nombre.value = e.target.value
-}
+const nombre = ref('');
 </script>
 <template>
     <div class="md:w-1/2">
@@ -20,7 +16,7 @@ const leerNombre = e => {
             <div class="mb-5">
                 <label for="mascota" class="block text-gray-700 uppercase font-bold">Nombre Mascota</label>
                 <input type="text" id="mascota" placeholder="Nombre de la mascota"
-                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" :value="nombre" @input="leerNombre">
+                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" v-model="nombre">
             </div>
 
             <div class="mb-5">
