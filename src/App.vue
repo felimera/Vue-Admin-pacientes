@@ -8,7 +8,7 @@ import Formulario from './components/Formulario.vue';
         <Header />
 
         <div class="mt-12 md:flex">
-            <Formulario />
+            <Formulario></Formulario>
         </div>
     </div>
 </template>
