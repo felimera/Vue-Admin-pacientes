@@ -10,7 +10,10 @@ const paciente = reactive({
 });
 
 const validar = () => {
-    console.log('validando....');
+    if (Object.values(paciente).includes('')) {
+        console.log('Si estan vacios')
+        return
+    }
 }
 </script>
 <template>
