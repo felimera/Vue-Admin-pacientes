@@ -2,7 +2,7 @@
 import { reactive } from 'vue';
 import { Alerta } from './Alerta.vue';
 
-const alerta = reactive({
+const alertaMensaje = reactive({
     tipo: '',
     mensaje: ''
 })
@@ -16,8 +16,8 @@ const paciente = reactive({
 
 const validar = () => {
     if (Object.values(paciente).includes('')) {
-        alerta.nombre = 'Todos los campos son obligatorios';
-        alerta.tipo = 'error';
+        alertaMensaje.nombre = 'Todos los campos son obligatorios';
+        alertaMensaje.tipo = 'error';
         return
     }
 }
@@ -29,6 +29,8 @@ const validar = () => {
             Añade pacientes y
             <span class="text-indigo-600 font-bold">Adminístralos</span>
         </p>
+
+        <Alerta v-if="alertaMensaje.mensaje" />
 
         <form class="bg-white shadow-md rounded-lg py-10 px-5 mb-10" @submit.prevent="validar">
             {{ paciente }}
