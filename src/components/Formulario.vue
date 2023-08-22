@@ -7,7 +7,7 @@ const alerta = reactive({
     mensaje: ''
 });
 
-defineEmits(['update:nombre', 'update:propietario', 'update:email', 'update:alta', 'update:sintomas']);
+const emit = defineEmits(['update:nombre', 'update:propietario', 'update:email', 'update:alta', 'update:sintomas', 'guardar-paciente']);
 
 const props = defineProps({
     nombre: {
@@ -38,6 +38,8 @@ const validar = () => {
         alerta.tipo = 'error';
         return
     }
+
+    emit('guardar-paciente');
 }
 </script>
 <template>
@@ -89,4 +91,5 @@ const validar = () => {
                 class="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-colors"
                 value="Registrar Paciente" />
         </form>
-</div></template>
+    </div>
+</template>
