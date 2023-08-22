@@ -7,14 +7,6 @@ const alerta = reactive({
     mensaje: ''
 });
 
-const paciente = reactive({
-    nombre: '',
-    propietario: '',
-    email: '',
-    alta: '',
-    sintomas: ''
-});
-
 const validar = () => {
     if (Object.values(paciente).includes('')) {
         alerta.mensaje = 'Todos los campos son obligatorios';
@@ -37,31 +29,30 @@ const validar = () => {
             <div class="mb-5">
                 <label for="mascota" class="block text-gray-700 uppercase font-bold">Nombre Mascota</label>
                 <input type="text" id="mascota" placeholder="Nombre de la mascota"
-                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" v-model="paciente.nombre">
+                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md">
             </div>
 
             <div class="mb-5">
                 <label for="propietario" class="block text-gray-700 uppercase font-bold">Nombre Propietario</label>
                 <input type="text" id="propietario" placeholder="Nombre del propietario"
-                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" v-model="paciente.propietario">
+                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md">
             </div>
 
             <div class="mb-5">
                 <label for="email" class="block text-gray-700 uppercase font-bold">Email</label>
                 <input type="email" id="email" placeholder="Email del propietario"
-                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" v-model="paciente.email">
+                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md">
             </div>
 
             <div class="mb-5">
                 <label for="alta" class="block text-gray-700 uppercase font-bold">Alta</label>
-                <input type="date" id="alta" class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
-                    v-model="paciente.alta">
+                <input type="date" id="alta" class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md">
             </div>
 
             <div class="mb-5">
                 <label for="sintomas" class="block text-gray-700 uppercase font-bold">Síntomas</label>
                 <textarea id="sintomas" placeholder="Describe los sítomas de este paciente"
-                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md h-40" v-model="paciente.sintomas" />
+                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md h-40" />
             </div>
 
             <input type="submit"
