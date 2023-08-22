@@ -58,7 +58,7 @@ const actualizarPaciente = id => {
         <div class="mt-12 md:flex">
             <Formulario v-model:nombre="paciente.nombre" v-model:propietario="paciente.propietario"
                 v-model:email="paciente.email" v-model:alta="paciente.alta" v-model:sintomas="paciente.sintomas"
-                @guardar-paciente="guardarPaciete" />
+                @guardar-paciente="guardarPaciete" :id="paciente.id" />
             <div class="md:w-1/2 md:h-screen overflow-y-scroll">
                 <h3 class="font-black text-3xl text-center">Administra tus Pacientes</h3>
                 <div v-if="pacientes.length > 0">
