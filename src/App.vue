@@ -17,9 +17,16 @@ const paciente = reactive({
 });
 
 const guardarPaciete = () => {
-    pacientes.value.push({
-        ...paciente, id: uid()
-    });
+    if (paciente.id) {
+        const { id } = paciente
+        const index = pacientes.value.findIndex(pacienteState => pacienteState.id === id);
+        pacientes.value[index] = { ...paciente }
+
+    } else {
+        pacientes.value.push({
+            ...paciente, id: uid()
+        });
+    }
     // Reiniciar el objeto
     // paciente.nombre=''
     // paciente.propietario=''
@@ -33,7 +40,8 @@ const guardarPaciete = () => {
         propietario: '',
         email: '',
         alta: '',
-        sintomas: ''
+        sintomas: '',
+        id: null
     });
 }
 
