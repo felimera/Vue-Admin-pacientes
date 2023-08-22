@@ -34,7 +34,6 @@ const validar = () => {
         <Alerta v-if="alerta.mensaje" :alerta="alerta" />
 
         <form class="bg-white shadow-md rounded-lg py-10 px-5 mb-10" @submit.prevent="validar">
-            {{ paciente }}
             <div class="mb-5">
                 <label for="mascota" class="block text-gray-700 uppercase font-bold">Nombre Mascota</label>
                 <input type="text" id="mascota" placeholder="Nombre de la mascota"
