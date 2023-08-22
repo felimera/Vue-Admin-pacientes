@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref, reactive, watch, onMounted } from 'vue';
 import { uid } from 'uid';
 import Header from './components/Header.vue';
 import Formulario from './components/Formulario.vue';
@@ -14,6 +14,23 @@ const paciente = reactive({
     email: '',
     alta: '',
     sintomas: ''
+});
+
+watch(pacientes, () => {
+    guardarLocalStorage()
+}, {
+    deep: true
+});
+
+const guardarLocalStorage = () => {
+    localStorage.setItem('pacientes', JSON.stringify(pacientes.value));
+}
+
+onMounted(() => {
+    const pacientesStorage = localStorage.getItem('pacientes')
+    if (pacientesStorage) {
+        pacientes.value = JSON.parse(pacientesStorage);
+    }
 });
 
 const guardarPaciete = () => {
@@ -72,7 +89,7 @@ const eliminarPaciente = id => {
                         <span class="text-indigo-600 font-bold">Pacientes</span>
                     </p>
                     <Paciente v-for="paciente in pacientes" :paciente="paciente" @actualizar-paciente="actualizarPaciente"
-                        @elimnar-paciente="eliminarPaciente" />
+                        @eliminar-paciente="eliminarPaciente" />
                 </div>
                 <p v-else class="mt-20 text-2xl text-center">No hay Pacientes</p>
             </div>
