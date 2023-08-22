@@ -38,7 +38,8 @@ const guardarPaciete = () => {
 }
 
 const actualizarPaciente = id => {
-
+    const pacienteEditar = pacientes.value.filter(paciente => paciente.id === id)[0];
+    Object.assign(paciente, pacienteEditar);
 }
 </script>
 
